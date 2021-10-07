@@ -1,4 +1,5 @@
 ﻿using System;
+using EstruturaDoPrograma.Exemplos;
 
 namespace EstruturaDoPrograma
 {
@@ -6,11 +7,11 @@ namespace EstruturaDoPrograma
     {
         static void Main()
         {
-            var s = new Pilha();
+            var s = new Exemplos.Pilha();
             s.Empilha(1);
             s.Empilha(10);
             s.Empilha(100);
-            Console.WriteLine(s);
+            Console.WriteLine(s.Desempilha());
             Console.WriteLine(s.Desempilha());
             Console.WriteLine(s.Desempilha());
             Console.WriteLine(s.Desempilha());

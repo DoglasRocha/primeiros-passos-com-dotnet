@@ -1,6 +1,6 @@
 using System;
 
-namespace EstruturaDoPrograma
+namespace EstruturaDoPrograma.Exemplos
 {
     public class Pilha
     {
@@ -15,13 +15,26 @@ namespace EstruturaDoPrograma
         {
             if (primeiro == null)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("A pilha está vazia!");
             }
 
             object resultado = primeiro.item;
             primeiro = primeiro.proximo;
 
             return resultado;
+        }
+
+        class Posicao
+        {
+            public Posicao proximo;
+
+            public object item;
+
+            public Posicao(Posicao proximo, object item)
+            {
+                this.proximo = proximo;
+                this.item = item;
+            }
         }
     }
 }
