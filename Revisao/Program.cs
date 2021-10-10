@@ -17,12 +17,13 @@ namespace Revisao
                 {
                     case "1":
                         AddStudent(students, studentIndex);
+                        studentIndex++;
                         break;
                     case "2":
                         ListStudents(students);
                         break;
                     case "3":
-                        // TODO: calculate mean
+                        CalculateMean(students);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("Digite um número válido");
@@ -30,6 +31,47 @@ namespace Revisao
                 
                 GetUserOption(out userOption);
             }
+        }
+
+        private static void CalculateMean(Student[] students)
+        {
+            decimal totalGrade = 0;
+            int studentsNumber = 0;
+
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(students[i].Name))
+                {
+                    totalGrade += students[i].Grade;
+                    studentsNumber++;
+                }
+            }
+
+            decimal classMean = totalGrade / studentsNumber;
+            EConcept classConcept;
+
+            if (classMean < 2) 
+            {
+                classConcept = EConcept.E;
+            }
+            else if (classMean < 4)
+            {
+                classConcept = EConcept.D;
+            }
+            else if (classMean < 6)
+            {
+                classConcept = EConcept.C;
+            }
+            else if (classMean < 8)
+            {
+                classConcept = EConcept.B;
+            }
+            else
+            {
+                classConcept = EConcept.A;
+            }
+
+            WriteLine($"MÉDIA GERAL: {classMean} - CONCEITO: {classConcept}");
         }
 
         private static void ListStudents(Student[] students)
@@ -60,7 +102,6 @@ namespace Revisao
             }
 
             students[studentIndex] = student;
-            studentIndex++;
         }
 
         private static void GetUserOption(out string userOption)
