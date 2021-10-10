@@ -6,7 +6,10 @@ namespace Revisao
     {
         static void Main(string[] args)
         {
-            Student[] students = new Student[5];
+            Write("Insira o número de alunos a serem cadastrados. ");
+            int studentsNumber = int.Parse(Console.ReadLine());
+
+            Student[] students = new Student[studentsNumber];
             int studentIndex = 0;
 
             GetUserOption(out string userOption);
