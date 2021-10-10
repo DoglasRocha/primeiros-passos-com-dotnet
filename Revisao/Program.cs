@@ -15,7 +15,7 @@ namespace Revisao
 
             GetUserOption(out string userOption);
 
-            while (userOption.ToUpper() != "X")
+            while (userOption.ToUpper() != "X" || studentIndex == studentsNumber - 1)
             {
                 switch (userOption)
                 {
