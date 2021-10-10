@@ -6,6 +6,7 @@ namespace Revisao
     {
         static void Main(string[] args)
         {
+            WriteLine();
             Write("Insira o número de alunos a serem cadastrados. ");
             int studentsNumber = int.Parse(Console.ReadLine());
 
